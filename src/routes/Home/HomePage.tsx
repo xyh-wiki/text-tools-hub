@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet-async';
 import { toolsMeta, toolCategories } from '../../config/tools-meta';
 import { getDefaultTitle, getDefaultDescription } from '../../seo/seoConfig';
 import { ToolCard } from '../../components/common/ToolCard';
+import { Link } from 'react-router-dom';
 
 // 中文说明：首页展示 Hero、分类入口与热门工具
 export const HomePage: React.FC = () => {
@@ -40,10 +41,10 @@ export const HomePage: React.FC = () => {
         </div>
         <div className="category-grid">
           {toolCategories.map(cat => (
-            <a key={cat.id} className="category-card" href={`/tools/${cat.id}`}>
-              <h3>{cat.label}</h3>
-              <p>View utilities in the {cat.label.toLowerCase()} category.</p>
-            </a>
+              <Link key={cat.id} className="category-card" to={`/tools/${cat.id}`}>
+                <h3>{cat.label}</h3>
+                <p>View utilities in the {cat.label.toLowerCase()} category.</p>
+              </Link>
           ))}
         </div>
       </section>
